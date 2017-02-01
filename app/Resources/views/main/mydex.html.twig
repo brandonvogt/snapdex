@@ -1,0 +1,33 @@
+<script src="{{ asset('js/remodal.js') }}"></script>
+{% for poke in pokemon %}
+    <div id="card{{poke.id}}" class="col-xs-4 col-sm-5ths bottom-padding">
+        <div id="inner{{poke.id}}">
+            <div class="gallery-container">
+
+                {% if poke.pictures.isEmpty()  %}
+                    <img class="rounded" src="{{ asset('img/unknown.png') }}" alt="Not Found Yet">
+                    <div class="absolute-bottom-right">
+                        <a data-remodal-target="modal{{poke.id}}" class="hover" id="poke{{poke.id}}"><img class="img-fix" src="{{ asset('img/plus.png') }}" alt=".."></a>
+                    </div>
+                    <div class="remodal" data-remodal-id="modal{{poke.id}}">
+                        <button data-remodal-action="close" class="remodal-close"></button>
+                        <div id="host{{poke.id}}">
+                            <img src="{{ asset('img/ripple.svg')}}">
+                        </div>
+                    </div>
+                    <script>
+                        $('#poke{{poke.id}}').unbind('click').bind('click', function () {
+                            $("#host{{poke.id}}").load("{{path('new_pic', {'poke_id' : poke.id}) }}");
+                            console.log('Moo.');
+                        });
+                    </script>
+                {% else %}
+                    <img class="rounded" src="pics/{{ poke.pictures[0].guid }}" alt="{{poke.name}}">
+                {% endif %}
+            </div>
+            <div class="title-card one-line">
+                <p>{{ poke.name }}</p>   
+            </div>
+        </div>
+    </div>     
+{%endfor%}

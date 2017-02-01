@@ -1,0 +1,34 @@
+    <h2>{{ pokemon.name }}</h2>
+    {{ form_start(form, {'attr' : {'id' : 'pokeSubmit'} }) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Upload"
+           class="btn btn-default" />
+    {{ form_end(form) }}
+    <script>
+        $("#pokeSubmit").submit(function(e){
+
+
+            var formURL = "{{ path('new_pic', {'poke_id' : pokemon.id}) }}";
+            var formData = new FormData(this);
+            $.ajax({
+                url: formURL,
+                type: 'POST',
+                data:  formData,
+                mimeType:"multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data, textStatus, jqXHR)
+                {
+                var inst = $.remodal.lookup[$('[data-remodal-id=modal{{pokemon.id}}]').data('remodal')];
+                inst.close();
+                $("#card{{pokemon.id}}").load("{{path('get_pokes')}} #inner{{pokemon.id}}");
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    
+                }
+            });
+            e.preventDefault(); //Prevent Default action.
+        });
+    </script>

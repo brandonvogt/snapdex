@@ -1,0 +1,79 @@
+body {
+    background-image: url("../img/bg.png");
+	background-repeat: repeat-x;
+	background-color: #7ab374;
+        text-align: center;
+}
+h1 {font-size: 3em}
+label {min-width: 7em}
+.main {
+	border-radius: 10px;
+	background-color: rgba(247,255,245, 0.85);
+        padding-left: 40px;
+        padding-right: 40px;
+}
+.main h1, p, a {
+	color: #44696c;
+}
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo img {
+max-width: 100%;
+height: auto;
+width: auto;
+margin-top: 2%;
+margin-bottom: 2%;
+}
+.rounded {
+    border-radius: 15px;
+    max-width: 100%;
+}
+.float-right {
+    float: right;
+    max-width: 100%;
+}
+.img-fix {
+    max-width: 100%;
+}
+.gallery-container {
+      position: relative;
+}
+.absolute-bottom-right {
+    width: 50%;
+    height: 20%;
+    position: absolute;
+    bottom: 0px;
+    right: -11px;
+    z-index: 10;
+}
+
+@media (min-width: 1200px) {
+    .absolute-bottom-right {
+        bottom: -1em;
+        right: -1.5em;
+    }
+}
+.title-card {
+    font-size: 1.2em;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.menu-hr {
+    border-color: #44696c;
+    border-width: 3px;
+    width: 70%;
+}
+.upshift {
+    margin-top: -10px;
+    margin-bottom: -15px;
+}
+.bottom-padding {padding-bottom: 10px}
+.hover:hover {
+    cursor: pointer
+}
+.one-line {
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -38,6 +38,7 @@ $RECYCLE.BIN/
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
+.htaccess
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -45,3 +46,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+app/config/*
+web/pics/*
+web/test.html
+web/config.php
+web/app_dev.php

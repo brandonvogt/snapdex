@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{%block title %} My Dex {% endblock %}
+{%block content %}
+<div id="pokeContainer">
+<img src="{{ asset('img/ripple.svg')}}">
+</div>
+<script>
+    $(function() {
+    $("#pokeContainer").load("{{path('get_pokes', {'offset':'0'})}}");
+    });
+</script>
+{%endblock%}
